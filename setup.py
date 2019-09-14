@@ -1,4 +1,5 @@
-from setuptools import setup
+from setuptools import find_packages, setup
+
 setup(
     name='django_opentracing',
     version='5.0.0',
@@ -7,7 +8,7 @@ setup(
     author_email='kcamenzind@lightstep.com',
     description='OpenTracing support for Django applications',
     long_description=open('README.rst').read(),
-    packages=['django_opentracing', 'django_opentracing.db', 'tests'],
+    packages=find_packages(),
     platforms='any',
     install_requires=[
         'django',

@@ -14,5 +14,5 @@ class DatabaseWrapperMixin(object):
 
     def create_cursor(self, name=None):
         cursor = super(DatabaseWrapperMixin, self).create_cursor(name)
-        return Cursor(cursor, self.tracing._self_tracer, self._self_span_tags,
+        return Cursor(cursor, self.tracing._self_tracer, self.tracing._self_span_tags,
                       trace_execute=False, trace_executemany=False)

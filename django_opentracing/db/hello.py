@@ -1,0 +1,2 @@
+def hest():
+    print("HELLO")

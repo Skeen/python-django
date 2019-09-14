@@ -1,2 +1,1 @@
-def hello(self):
-    print("HELLO")
+from .hello import hest

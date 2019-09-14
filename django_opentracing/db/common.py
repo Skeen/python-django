@@ -1,5 +1,4 @@
 from dbapi_opentracing import ConnectionTracing
-import db_api_compatible_client
 import opentracing
 
 

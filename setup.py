@@ -18,7 +18,7 @@ setup(
     install_requires=[
         'django',
         'opentracing>=2.0,<3',
-        'python-dbapi @ git+https://github.com/Skeen/python-dbapi.git@v0.0.5#egg=python-dbapi',
+        'python-dbapi @ git+https://github.com/Skeen/python-dbapi.git@v0.0.5#egg=master',
         'six',
     ],
     extras_require={

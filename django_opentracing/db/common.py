@@ -7,7 +7,7 @@ class DatabaseWrapperMixin(object):
     """Extends the DatabaseWrapper to count connections and cursors."""
 
     def get_new_connection(self, *args, **kwargs):
-        new_connection = return super(DatabaseWrapperMixin, self).get_new_connection(
+        new_connection = super(DatabaseWrapperMixin, self).get_new_connection(
             *args, **kwargs
         )
         self.tracing = ConnectionTracing(new_connection)

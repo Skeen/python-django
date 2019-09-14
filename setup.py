@@ -1,11 +1,7 @@
 from setuptools import setup
-import versioneer
-
-version=versioneer.get_version()
 setup(
     name='django_opentracing',
-    cmdclass=versioneer.get_cmdclass(),
-    version=version,
+    version='5.0.0',
     license='BSD',
     author='Kathy Camenzind',
     author_email='kcamenzind@lightstep.com',

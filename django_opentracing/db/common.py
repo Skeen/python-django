@@ -13,4 +13,4 @@ class DatabaseWrapperMixin(object):
         return new_connection
 
     def create_cursor(self, name=None):
-        return self.tracing.cursor() #super(DatabaseWrapperMixin, self).create_cursor(name))
+        return super(DatabaseWrapperMixin, self).create_cursor(name)

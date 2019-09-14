@@ -7,7 +7,7 @@ setup(
     author_email='kcamenzind@lightstep.com',
     description='OpenTracing support for Django applications',
     long_description=open('README.rst').read(),
-    packages=['django_opentracing', 'tests'],
+    packages=['django_opentracing', 'django_opentracing.db', 'tests'],
     platforms='any',
     install_requires=[
         'django',

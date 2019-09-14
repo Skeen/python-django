@@ -117,7 +117,35 @@ STATIC_URL = '/static/'
 # OpenTracing settings
 
 # default tracer is opentracing.Tracer(), which does nothing
-OPENTRACING_TRACING = django_opentracing.DjangoTracing()
+
+import logging
+from jaeger_client import Config
+
+
+def init_tracer(service):
+    logging.getLogger('').handlers = []
+    logging.basicConfig(format='%(message)s', level=logging.DEBUG)
+
+    config = Config(
+        config={
+            'sampler': {
+                'type': 'const',
+                'param': 1,
+            },
+            'logging': True,
+        },
+        service_name=service,
+    )
+
+    # this call also sets opentracing.tracer
+    return config.initialize_tracer()
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django_opentracing.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+}
 
 # default is False
 OPENTRACING_TRACE_ALL = False 
@@ -125,4 +153,4 @@ OPENTRACING_TRACE_ALL = False
 # default is []
 OPENTRACING_TRACED_ATTRIBUTES = ['META']
 
-
+OPENTRACING_TRACING = django_opentracing.DjangoTracer(init_tracer('django'))

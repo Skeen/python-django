@@ -1,4 +1,4 @@
-from dbapi_opentracing import ConnectionTracing
+from dbapi_opentracing import ConnectionTracing, Cursor
 import opentracing
 
 
@@ -13,5 +13,6 @@ class DatabaseWrapperMixin(object):
         return new_connection
 
     def create_cursor(self, name=None):
-        return self.tracing.cursor(trace_execute=False, trace_executemany=False)
-        # return super(DatabaseWrapperMixin, self).create_cursor(name)
+        cursor = super(DatabaseWrapperMixin, self).create_cursor(name)
+        return Cursor(cursor, self.tracing._self_tracer, self._self_span_tags,
+                      trace_execute=False, trace_executemany=False)

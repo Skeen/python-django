@@ -6,8 +6,6 @@ setup(
     name='django_opentracing',
     cmdclass=versioneer.get_cmdclass(),
     version=version,
-    url='https://github.com/opentracing-contrib/python-django/',
-    download_url='https://github.com/opentracing-contrib/python-django/tarball/'+version,
     license='BSD',
     author='Kathy Camenzind',
     author_email='kcamenzind@lightstep.com',
